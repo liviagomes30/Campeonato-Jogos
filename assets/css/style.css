@@ -1,3 +1,17 @@
+:root {
+  --secondary: #7b6fc9;
+  --secondary50: rgba(123, 111, 201, 0.5);
+  --primary: #1430ad;
+  --principal: #3f74af;
+  --principal50: rgba(63, 115, 175, 0.5);
+  --principal30: rgba(63, 115, 175, 0.3);
+  --graylight: #dadada;
+}
+
+::placeholder {
+  color: var(--graylight); /* Altere para a cor desejada */
+}
+
 .font-title {
   font-family: "Bebas Neue", sans-serif;
 }
@@ -8,7 +22,7 @@
 }
 
 .inscr:hover {
-  border: 1px solid #1430ad;
+  border: 1px solid var(--primary);
 }
 
 .item-img {
@@ -125,7 +139,7 @@
   align-items: center;
   flex-direction: column;
   padding: 30px 35px;
-  background-color: #1c2e7e;
+  background-color: var(--primary);
   border-radius: 23px;
   box-shadow: 0 10px 40px #00000056;
 }
@@ -150,7 +164,7 @@
   border: none;
   border-radius: 10px;
   padding: 15px;
-  background-color: #534fbb;
+  background-color: var(--secondary);
   color: #f0ffffde;
   font-size: 12px;
   box-shadow: 0 10px 40px #00000056;
@@ -192,7 +206,7 @@
 }
 
 .back-to-home .back-text:hover {
-  color: #1c2e7e;
+  color: var(--principal);
 }
 
 .back-to-home .arrow {
@@ -220,10 +234,14 @@
 
 .btn-login.atualizar {
   margin: 15px 0 0 0;
-  color: #2b134b;
-  background-color: #bfb5e5;
+  color: #fff;
+  background-color: var(--principal);
   cursor: pointer;
-  box-shadow: 0 10px 40px -12px rgba(191, 181, 229, 0.2);
+  box-shadow: 0 10px 40px -12px rgba(63, 115, 175, 0.2);
+}
+
+.btn-login.atualizar:hover {
+  background-color: var(--principal50);
 }
 
 .form-control-file {
@@ -241,7 +259,7 @@
 }
 
 .cadastro a:hover {
-  color: #534fbb;
+  color: var(--secondary);
 }
 
 @media (max-width: 1210px) {
@@ -292,7 +310,7 @@
 
   .live-stream span i {
     color: #fff;
-    background-color: rgba(35, 58, 158, 0.5);
+    background-color: var(--principal50);
     border-radius: 50%;
     font-size: 12px;
     width: 20px;
@@ -367,7 +385,7 @@
   }
 
   .left-login-img {
-    width: 50vw;
+    display: none;
   }
 
   .card-login {
@@ -392,19 +410,20 @@
 }
 
 dialog {
-  background-color: #221a33;
+  background-color: #1d2450;
   border: none;
   align-items: center;
-  width: 400px;
-  height: 200px;
+  width: 300px;
+  height: 150px;
   border-radius: 10px;
 }
 dialog p {
   color: white;
 }
+
 .dialog-item {
   margin-right: 100px;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .dialog-itens {
@@ -423,7 +442,7 @@ dialog p {
 }
 .bt-action:hover {
   background-color: black;
-  box-shadow: 2px 2px 10px 1px white;
+  box-shadow: 0.5px 1px 8px rgba(255, 255, 255, 0.4);
 }
 
 #bt-ok {
@@ -432,14 +451,14 @@ dialog p {
 
 .btn-login {
   margin-top: 20px;
-  background-color: #534fbb;
+  background-color: var(--secondary);
   border-radius: 10px;
   border: none;
   color: white;
 }
 
 .btn-login:hover {
-  background-color: #102688;
+  background-color: var(--secondary50);
   box-shadow: 0 10px 40px -20px rgba(191, 181, 229, 0.6);
 }
 .main-profile {

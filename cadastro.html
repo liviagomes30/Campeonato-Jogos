@@ -9,9 +9,29 @@
       name="keywords"
       content="FIPP Games, jogos, competições, esports, torneios, gaming, campeonato, FIPP"
     />
+    <link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-cyborg-gaming.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+
+    <meta
+      name="keywords"
+      content="FIPP Games, jogos, competições, esports, torneios, gaming, campeonato, FIPP"
+    />
   </head>
   <body>
-    <header class="header-area">
+    <div class="header-area-back">
       <div class="container-fluid">
         <nav class="back-nav d-flex">
           <!-- ***** Logo Start ***** -->
@@ -20,14 +40,16 @@
           </a>
         </nav>
       </div>
-    </header>
-    <div class="container">
-      <div class="form-img">
+    </div>
+    <div class="container-sm">
+      <!-- <div class="form-img">
         <img src="assets/imgs/undraw_subs_.svg" alt="" />
-      </div>
+      </div> -->
       <div class="form">
-        <form action="#">
-          <div class="form-header">
+        <form action="#" id="formulario">
+          <div
+            class="form-header d-flex justify-content-between align-items-center"
+          >
             <div class="title">
               <h1>Cadastre-se</h1>
             </div>
@@ -35,96 +57,305 @@
               <button><a href="login.html">Entrar</a></button>
             </div>
           </div>
-          <div class="input-group">
-            <div class="input-box">
-              <label for="firstname">Primeiro nome</label>
-              <input
-                type="text"
-                name="firstname"
-                id="firstname"
-                placeholder="Digite seu nome"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label for="lastname">Sobrenome</label>
-              <input
-                type="text"
-                name="lastname"
-                id="lastname"
-                placeholder="Digite seu sobrenome"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label for="email">E-mail</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                placeholder="Digite seu e-mail"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label for="number">Celular</label>
-              <input
-                type="tell"
-                name="number"
-                id="number"
-                placeholder="(XX) XXXX-XXXX"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label for="password">Senha</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Digite sua senha"
-                required
-              />
-            </div>
-            <div class="input-box">
-              <label for="con-password">Confirme sua senha</label>
-              <input
-                type="password"
-                name="con-password"
-                id="con-password"
-                placeholder="Confirme sua senha"
-                required
-              />
-            </div>
-            <div class="gender-inputs">
-              <div class="gender-tittle">
-                <h6>Gênero</h6>
+          <div class="aviso-obrigatorio">
+            <span class="obrigatorio">*</span> Obrigatório
+          </div>
+          <div class="justify-content-start">
+            <div class="row">
+              <div class="input-box col">
+                <label for="firstname" class="form-label"
+                  ><span class="obrigatorio">*</span>Nome completo</label
+                >
+                <input
+                  type="text"
+                  name="firstname"
+                  id="firstname"
+                  class="form-control"
+                  placeholder="Digite seu nome"
+                  required
+                  onblur="validarNome(this.value)"
+                />
+                <div
+                  class="invalid-feedback"
+                  role="alert"
+                  id="firstname-error"
+                  style="display: none"
+                >
+                  Nome inválido
+                </div>
               </div>
-              <div class="gender-group">
-                <div class="gender-input">
-                  <input type="radio" id="female" name="gender" />
-                  <label for="female">Feminino</label>
+              <div class="input-box col">
+                <label for="rg" class="form-label"
+                  ><span class="obrigatorio">*</span> RG</label
+                >
+                <input
+                  type="text"
+                  name="rg"
+                  id="rg"
+                  class="form-control"
+                  placeholder="XX.XXX.XXX-X"
+                  required
+                  onblur="validarRg(this.value)"
+                />
+                <div
+                  class="invalid-feedback"
+                  role="alert"
+                  id="rg-error"
+                  style="display: none"
+                >
+                  RG inválido
                 </div>
-                <div class="gender-input">
-                  <input type="radio" id="male" name="gender" />
-                  <label for="male">Masculino</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-box col">
+                <label for="email" class="form-label"
+                  ><span class="obrigatorio">*</span> E-mail</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="Digite seu e-mail"
+                  required
+                  onblur="validarEmail(this.value)"
+                />
+                <div
+                  class="invalid-feedback"
+                  role="alert"
+                  id="email-error"
+                  style="display: none"
+                >
+                  Email inválido
                 </div>
-                <div class="gender-input">
-                  <input type="radio" id="others" name="gender" />
-                  <label for="others">Outros</label>
+              </div>
+              <div class="input-box col">
+                <label for="cpf" class="form-label"
+                  ><span class="obrigatorio">*</span> CPF</label
+                >
+                <input
+                  type="text"
+                  name="cpf"
+                  id="cpf"
+                  class="form-control"
+                  placeholder="XXX.XXX.XXX-XX"
+                  required
+                  onkeyup="mascara('###.###.###-##',this,event)"
+                  onblur="validarCPF(this)"
+                />
+                <div
+                  class="invalid-feedback"
+                  role="alert"
+                  id="cpf-error"
+                  style="display: none"
+                >
+                  CPF inválido
                 </div>
-                <div class="gender-input">
-                  <input type="radio" id="dontsay" name="gender" />
-                  <label for="dontsay">Prefiro não dizer</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-box col">
+                <label for="password" class="form-label"
+                  ><span class="obrigatorio">*</span> Senha</label
+                >
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Digite sua senha"
+                  required
+                  oninput="validarSenhas()"
+                />
+              </div>
+
+              <div class="input-box col">
+                <label for="data_nasc" class="form-label"
+                  ><span class="obrigatorio">*</span> Data de nascimento</label
+                >
+                <input
+                  type="date"
+                  name="data_nasc"
+                  class="form-control"
+                  id="data_nasc"
+                  required
+                  max="2009-12-31"
+                  oninput="validarIdade(this.valueAsDate)"
+                />
+                <div
+                  class="invalid-feedback"
+                  role="alert"
+                  id="idade-error"
+                  style="display: none"
+                >
+                  Data de nascimento inválida
                 </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-box col">
+                <label for="con-password" class="form-label"
+                  ><span class="obrigatorio">*</span> Confirme sua senha</label
+                >
+                <input
+                  type="password"
+                  name="con-password"
+                  id="con-password"
+                  class="form-control"
+                  placeholder="Confirme sua senha"
+                  required
+                  oninput="validarSenhas()"
+                />
+                <div
+                  class="invalid-feedback"
+                  role="alert"
+                  id="senha-error"
+                  style="display: none"
+                >
+                  As senhas não coincidem.
+                </div>
+                <div
+                  class="invalid-feedback"
+                  role="alert"
+                  id="senha-invalid"
+                  style="display: none"
+                >
+                  <p>
+                    A senha precisa ter no mínimo 8 caracteres, caracter
+                    especial e ao menos uma letra minúscula e maiúscula.
+                  </p>
+                </div>
+              </div>
+
+              <div class="input-box genero col">
+                <label for="genero" class="form-label"
+                  ><span class="obrigatorio">*</span> Gênero</label
+                >
+                <select
+                  name="genero"
+                  id="genero"
+                  class="form-select"
+                  aria-label="Seleção Gênero"
+                  required
+                >
+                  <option value="Feminino">Feminino</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Outros">Outros</option>
+                  <option value="Prefiro não dizer">Prefiro não dizer</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-box col">
+                <label for="number" class="form-label"
+                  ><span class="obrigatorio">*</span> Celular</label
+                >
+                <input
+                  type="tell"
+                  name="number"
+                  id="number"
+                  class="form-control"
+                  placeholder="(XX) XXXX-XXXX"
+                  onkeyup="mascara('(##)#####-####',this,event)"
+                />
+              </div>
+              <div class="input-box escolaridade col">
+                <label for="escolaridade" class="form-label"
+                  ><span class="obrigatorio">*</span> Escolaridade</label
+                >
+                <select
+                  name="escolaridade"
+                  id="escolaridade"
+                  class="form-select"
+                >
+                  <option value="Fundamental incompleto">
+                    Fundamental incompleto
+                  </option>
+                  <option value="Fundamental completo">
+                    Fundamental completo
+                  </option>
+                  <option value="Ensino médio incompleto">
+                    Ensino médio incompleto
+                  </option>
+                  <option value="Ensino médio completo">
+                    Ensino médio completo
+                  </option>
+                  <option value="Superior incompleto">
+                    Superior incompleto
+                  </option>
+                  <option value="Superior completo">Superior completo</option>
+                </select>
               </div>
             </div>
           </div>
-          <div class="continue-button">
+
+          <dialog id="dialog-ok2">
+            <div class="dialog-item">
+              <p>Cadastro realizado :D</p>
+              <button class="bt-action dialog-itens" id="bt-ok2">Ok</button>
+            </div>
+          </dialog>
+          <dialog id="dialog-empty">
+            <div class="dialog-item">
+              <p>Certifique-se que todos os campos estejam preenchidos!</p>
+              <button class="bt-action dialog-itens" id="bt-empty">Ok</button>
+            </div>
+          </dialog>
+
+          <div class="continue-button" id="continue-button">
             <button><a href="#">Continuar</a></button>
           </div>
         </form>
       </div>
     </div>
+
+    <dialog id="dialog-ok2">
+      <div class="dialog-item">
+        <p>Cadastro realizado :D</p>
+        <button class="bt-action dialog-itens" id="bt-ok2">Ok</button>
+      </div>
+    </dialog>
+
+   <dialog id="dialog-excluir">
+      <div class="dialog-item">
+        <p>Não há itens para serem excluidos.</p>
+        <button class="bt-action dialog-itens" id="bt-excluir">Ok</button>
+      </div>
+    </dialog>
+
+  </form>
+</div>
+</div>
+<div class="container-sm container-fluid container-exibir">
+<div id="exibir" class="exibirDados">
+  <div class="button-exibir-div">
+    <button id="button-exibir" class="button-exibir"><a href="#">Exibir dados</a></button>
+    <button id="button-excluir-selecionados" class="button-exibir"><a href="#">Excluir dados selecionados</a></button>
+  </div>
+ 
+  <div class="table-container">
+    <table id="exibirDados" >
+      
+    
+    </table>
+  </div>
+
+  
+
+</div>
+</div>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/tabs.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/validation.js"></script>
   </body>
 </html>
